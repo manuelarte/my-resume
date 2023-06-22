@@ -21,11 +21,11 @@ jobs:
       - name: build pdf 
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: rough_notes.tex
-          working_directory: docs 
+          root_file: resume.tex
+          working_directory: / 
       - name: stash pdf
         run: |
-          mv docs/rough_notes.pdf $HOME # cache the file
+          mv resume.pdf $HOME # cache the file
       - name: checkout gh_actions_builds branch
         uses: actions/checkout@v1
         with:
