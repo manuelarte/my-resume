@@ -1,0 +1,45 @@
+name: latex resume
+
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches:
+    - master
+    paths:
+    - '/resume.tex'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  latex-job:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: download paper repo
+        uses: actions/checkout@v1
+      - name: build pdf 
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: rough_notes.tex
+          working_directory: docs 
+      - name: stash pdf
+        run: |
+          mv docs/rough_notes.pdf $HOME # cache the file
+      - name: checkout gh_actions_builds branch
+        uses: actions/checkout@v1
+        with:
+          ref: gh_actions_builds
+      - name: commit pdf
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          mv $HOME/rough_notes.pdf $(pwd) # bring it back 
+          git add rough_notes.pdf
+          git commit -m "Add changes"
+      - name:  push pdf
+        uses: ad-m/github-push-action@v0.6.0
+        with: 
+          branch: gh_actions_builds 
+          force: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
