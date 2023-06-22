@@ -34,8 +34,8 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          mv $HOME/rough_notes.pdf $(pwd) # bring it back 
-          git add rough_notes.pdf
+          mv $HOME/resume.pdf $(pwd) # bring it back 
+          git add resume.pdf
           git commit -m "Add changes"
       - name:  push pdf
         uses: ad-m/github-push-action@v0.6.0
