@@ -22,7 +22,6 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: resume.tex
-          working_directory: / 
       - name: stash pdf
         run: |
           mv resume.pdf $HOME # cache the file
