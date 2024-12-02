@@ -2,9 +2,9 @@ Manuel Doncel
 ============
 
 -------------------     ----------------------------
-1 MyAddress             manueldoncelmartos@gmail.com
+Zwanebloem 85,                manueldoncelmartos@gmail.com
 Alphen aan den Rijn
-The Netherlands         +31 683 990 836
+The Netherlands               +31 683 990 836
 -------------------     ----------------------------
 
 Experience
