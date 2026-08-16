@@ -12,13 +12,13 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: resume.tex
+          root_file: ManuelDoncel_TechLead.tex
       - name: Upload PDF file
         uses: softprops/action-gh-release@v1
         with:
           tag_name: test
           files: |
-            resume.pdf
+            ManuelDoncel_TechLead.pdf
       - name: Commit files
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
